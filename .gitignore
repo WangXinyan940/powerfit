@@ -6,3 +6,4 @@ analysis/
 
 *.c
 *.pyc
+*.bak

@@ -1,4 +1,4 @@
-from __future__ import division, absolute_import
+
 from struct import unpack as _unpack, pack as _pack
 import os.path
 from sys import byteorder as _BYTEORDER
@@ -76,7 +76,7 @@ def trim(volume, cutoff, margin=2):
         raise ValueError('Cutoff value should be lower than density max.')
 
     extent = []
-    for axis in xrange(volume.array.ndim):
+    for axis in range(volume.array.ndim):
         tmp = np.swapaxes(volume.array, 0, axis)
         for n, s in enumerate(tmp):
             if s.max() > cutoff:
