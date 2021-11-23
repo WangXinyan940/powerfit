@@ -257,9 +257,9 @@ class CCP4Parser(object):
     HEADER_CHUNKS = [1] * 25 + [9, 3, 12] + [1] * 3 + [4, 4, 1, 1, 800]
 
     def __init__(self, fid):
-
+        
         if isinstance(fid, str):
-            fhandle = open(fid)
+            fhandle = open(fid, "rb")
         elif isinstance(fid, file):
             fhandle = fid
         else:
@@ -333,7 +333,7 @@ class CCP4Parser(object):
             else:
                 self.header[field] = header[index]
             index = end
-        self.header['label'] = ''.join(self.header['label'])
+        self.header['label'] = b''.join(self.header['label'])
 
     def _get_origin(self):
         start_fields = 'nsstart nrstart ncstart'.split()

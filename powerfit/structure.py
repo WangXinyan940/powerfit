@@ -2,6 +2,7 @@
 from collections import defaultdict, Sequence, OrderedDict
 import operator
 from string import capwords
+import io
 
 import numpy as np
 
@@ -29,7 +30,7 @@ TER_DATA = 'id resn chain resi i'.split()
 
 def parse_pdb(infile):
 
-    if isinstance(infile, file):
+    if isinstance(infile, io.TextIOWrapper):
         f = infile
     elif isinstance(infile, str):
         f = open(infile)

@@ -258,10 +258,10 @@ static struct PyModuleDef mymodule = {
     "A sample module",    /* Doc string (may be NULL) */
     -1,                   /* Size of per-interpreter state or -1 */
     mymethods             /* Method table */
-}
+};
 
 PyMODINIT_FUNC
-PyInit_sample(void)
+PyInit__extensions(void)
 {
     return PyModule_Create(&mymodule);
 };
