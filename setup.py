@@ -4,12 +4,9 @@ import os.path
 import numpy
 from setuptools import setup
 from setuptools.extension import Extension
-try:
-    from Cython.Distutils import build_ext
-    from Cython.Build import cythonize
-    CYTHON = True
-except ImportError:
-    CYTHON = False
+from Cython.Distutils import build_ext
+from Cython.Build import cythonize
+CYTHON = True
 
 
 def main():

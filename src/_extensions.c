@@ -252,11 +252,17 @@ static PyMethodDef mymethods[] = {
     {NULL, NULL, 0, NULL}
 };
 
+static struct PyModuleDef mymodule = {
+    PyModuleDef_HEAD_INIT,
+    "mymodule",           /* name of module */
+    "A sample module",    /* Doc string (may be NULL) */
+    -1,                   /* Size of per-interpreter state or -1 */
+    mymethods             /* Method table */
+}
 
 PyMODINIT_FUNC
-init_extensions(void)
+PyInit_sample(void)
 {
-    (void) Py_InitModule("_extensions", mymethods);
-    import_array();
+    return PyModule_Create(&mymodule);
 };
 
