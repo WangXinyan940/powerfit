@@ -431,7 +431,7 @@ def to_mrc(fid, volume, labels=[], fmt=None):
     else:
         raise ValueError("Byteorder {:} is not recognized".format(byteorder))
     labels = [' '] * 800
-    nlabels = 0
+    nlabels = 2 # it can be anything but not 0, or CCP4 suit can not read this file correctly
     min_density = volume.array.min()
     max_density = volume.array.max()
     mean_density = volume.array.mean()
